@@ -17,10 +17,21 @@ export default {
         username: currentUser.id,
         name: currentUser.name
       });
-      commit('setReconnect', false);
+      // Save list of user's rooms in store
+      const rooms = currentUser.rooms.map(room => ({
+        id: room.id,
+        name: room.name
+      }))
+      commit('setRooms', rooms);
+      // Subscribe user to a room
+      const activeRoom = state.activeRoom || rooms[0]; // pick last used room, or the first one
+      commit('setActiveRoom', {
+        id: activeRoom.id,
+        name: activeRoom.name
+      });
+      await chatkit.subscribeToRoom(activeRoom.id);
 
-      // Test state.user
-      console.log(state.user);
+      return true;
     } catch (error) {
       handleError(commit, error)
     } finally {

@@ -16,54 +16,13 @@ export default new Vuex.Store({
   state: {
     loading: false,
     sending: false,
-    error: 'Relax! This is just a drill error message',
-    user: {
-      username: 'rparelkar',
-      name: 'Rahul Parelkar'
-    },
+    error: null,
+    user: null,
     reconnect: false,
-    activeRoom: {
-      id: '124'
-    },
-    rooms: [
-      {
-        id: '123',
-        name: 'Rog'
-      },
-      {
-        id: '124',
-        name: 'Prem'
-      }
-    ],
-    users: [
-      {
-        username: 'kdesai',
-        name: 'Kimaya Desai',
-        presence: 'online'
-      },
-      {
-        username: 'rparelkar',
-        name: 'Rahul Parelkar',
-        presence: 'online'
-      }
-    ],
-    messages: [
-      {
-        username: 'kdesai',
-        date: '11/12/2020',
-        text: 'Rahul, please marry me'
-      },
-      {
-        username: 'rparelkar',
-        date: '12/12/2020',
-        text: 'Is this a hokar?'
-      },
-      {
-        username: 'kdesai',
-        date: '11/12/2020',
-        text: 'yes Rahul muah muah muah'
-      },
-    ],
+    activeRoom: null,
+    rooms: [],
+    users: [],
+    messages: [],
     userTyping: null
   },
   mutations,
